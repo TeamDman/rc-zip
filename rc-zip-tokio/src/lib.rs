@@ -7,7 +7,8 @@
 
 #![warn(missing_docs)]
 
-mod entry_reader;
+/// Helpers for reading the contents of zip file entries
+pub mod entry_reader;
 mod read_zip;
 
 mod streaming_entry_reader;

@@ -8,7 +8,8 @@ use rc_zip::{
 use tokio::io::{AsyncRead, ReadBuf};
 
 pin_project! {
-    pub(crate) struct EntryReader<R>
+    /// An asynchronous reader for zip entry data.
+    pub struct EntryReader<R>
     where
         R: AsyncRead,
     {
@@ -22,7 +23,8 @@ impl<R> EntryReader<R>
 where
     R: AsyncRead,
 {
-    pub(crate) fn new<F>(entry: &Entry, get_reader: F) -> Self
+    /// Creates a new `EntryReader` for the given `Entry` and a cursor into the reader.
+    pub fn new<F>(entry: &Entry, get_reader: F) -> Self
     where
         F: Fn(u64) -> R,
     {

@@ -37,6 +37,12 @@ impl Archive {
         self.entries.iter()
     }
 
+
+    /// Returns all entries in this archive.
+    pub fn into_entries(self) -> Vec<Entry> {
+        self.entries
+    }
+
     /// Attempts to look up an entry by name. This is usually a bad idea,
     /// as names aren't necessarily normalized in zip archives.
     pub fn by_name<N: AsRef<str>>(&self, name: N) -> Option<&Entry> {

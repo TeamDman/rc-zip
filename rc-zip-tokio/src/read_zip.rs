@@ -168,6 +168,11 @@ where
         })
     }
 
+    /// Extracts the entries from the archive
+    pub fn into_entries(self) -> Vec<Entry> {
+        self.archive.into_entries()
+    }
+
     /// Attempts to look up an entry by name. This is usually a bad idea,
     /// as names aren't necessarily normalized in zip archives.
     pub fn by_name<N: AsRef<str>>(&self, name: N) -> Option<EntryHandle<'_, F>> {
